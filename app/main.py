@@ -168,6 +168,23 @@ def expand_query_with_llm(query):
     queries = [query] + [s.strip('- ').strip() for s in suggestions if s.strip()]
     return queries
 
+def call_llm(payload):
+    """
+    Calls OpenAI's chat completion API with the given payload.
+    If payload is a dict with a 'content' key, use that as the prompt.
+    If payload is a string, use it directly as the prompt.
+    """
+    if isinstance(payload, dict) and "content" in payload:
+        prompt = payload["content"]
+    else:
+        prompt = str(payload)
+    response = openai.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[{"role": "user", "content": prompt}]
+    )
+    return response.choices[0].message.content.strip()
+
+
 # Agentic Content Generator (LLM self-reflection)
 def agentic_content_generator(payload):
     # Step 1: Generate initial content
