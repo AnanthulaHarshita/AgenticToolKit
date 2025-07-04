@@ -1,6 +1,7 @@
 # === File: app/main.py ===
 # Main Flask application setup
 
+import logging
 from flask import Flask, render_template, request
 from app.routes.agent_router import agent_bp
 from app.routes.health import health_bp
@@ -89,6 +90,7 @@ def content_generator():
 # RAG UI Route (Classic and Agentic)
 @app.route("/rag-ui", methods=["GET", "POST"])
 def rag_ui():
+    import logging
     rag_answer = None
     retrieved_files = []
     use_agentic = False
@@ -104,19 +106,28 @@ def rag_ui():
             queries = expand_query_with_llm(query)
             all_results = []
             for q in queries:
-                all_results.extend(search_embeddings(q, top_k=2))
+                results = search_embeddings(q, top_k=2)
+                # If results is a dict with "error", skip or handle
+                if isinstance(results, dict) and "error" in results:
+                    logging.error(f"RAG search error: {results['error']}")
+                    continue
+                all_results.extend(results)
             # Remove duplicate files
             seen = set()
             unique_results = []
             for r in all_results:
-                if r["file"] not in seen:
-                    unique_results.append(r)
-                    seen.add(r["file"])
+                if isinstance(r, dict) and "file" in r:
+                    if r["file"] not in seen:
+                        unique_results.append(r)
+                        seen.add(r["file"])
             # Build context from retrieved files
             context = ""
             for res in unique_results:
-                with open(res["file"], "r", encoding="utf-8") as f:
-                    context += f"\n---\n" + f.read()
+                try:
+                    with open(res["file"], "r", encoding="utf-8") as f:
+                        context += f"\n---\n" + f.read()
+                except Exception as e:
+                    logging.error(f"Error reading file {res['file']}: {e}")
             # Prompt LLM with context and question
             prompt = f"""Use the following context to answer the user's question.
 
@@ -125,11 +136,15 @@ Context:
 
 Question: {query}
 Answer:"""
-            response = openai.chat.completions.create(
-                model="gpt-3.5-turbo",
-                messages=[{"role": "user", "content": prompt}]
-            )
-            rag_answer = response.choices[0].message.content
+            try:
+                response = openai.chat.completions.create(
+                    model="gpt-3.5-turbo",
+                    messages=[{"role": "user", "content": prompt}]
+                )
+                rag_answer = response.choices[0].message.content
+            except Exception as e:
+                logging.error(f"OpenAI API error: {e}")
+                rag_answer = f"Exception: {e}"
             retrieved_files = [r["file"] for r in unique_results]
     # Render the RAG UI template with the answer and files used
     return render_template("rag.html", rag_answer=rag_answer, retrieved_files=retrieved_files)
@@ -204,7 +219,12 @@ def agentic_rag(query):
     queries = expand_query_with_llm(query)
     all_results = []
     for q in queries:
-        all_results.extend(search_embeddings(q, top_k=2))
+        results = search_embeddings(q, top_k=2)
+        # If results is a dict with "error", skip or handle
+        if isinstance(results, dict) and "error" in results:
+            logging.error(f"RAG search error: {results['error']}")
+            continue
+        all_results.extend(results)
     # Remove duplicates
     seen = set()
     unique_results = []

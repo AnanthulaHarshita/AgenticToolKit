@@ -3,41 +3,7 @@
 🔵 AGENT: SEO and GEO Generator
 ========================
 
-📤 REQUEST PAYLOAD
-------------------------
-{'agent': 'seo_generator', 'input': {'topic': 'Special Events', 'style': 'Informative', 'length': 'Long', "FAQ'S": 'YES', 'LIMIT': '1000', 'EXISTING DATA TO BE USED ': 'Special Events\r\nAs the organizer of an event, you have a significant level of liability for the incidents that take place during the occasion. Whether you’re hosting a stag night, a wedding, a large birthday celebration or any other type of event, our trusted team can help build the ideal insurance product for the occasion. It’s a service that can mitigate costly liability and help ensure there are no long-term costs to bear for incidents that might take place on the day.\r\n\r\nFor your ease and convenience, you may apply directly to Pal Canada for your Special Event Liability policies by clicking HERE. If you need assistance with placing this coverage, please contact one of our broker'}}
 
-📋 FULL PROMPT SENT TO GPT
-------------------------
-
-You are an expert SEO and geo-targeted content writer specializing in high-conversion copywriting.
-
-Your goal is to write a long article in a informative tone on the topic: 'Special Events'.
-
-**Key Instructions:**
-- Optimize for high-converting, long-tail keywords related to the topic and Ontario, Canada.
-- Include location-specific language and examples to increase local relevance.
-- Structure the content with a compelling H1, SEO-friendly subheadings (H2/H3), and a persuasive meta title and meta description.
-- Write with lead generation in mind: include trust-building statements, benefit-driven CTAs, and soft sales language without being overly promotional.
-- Use real-world benefits, social proof suggestions (testimonials, location mentions), and clear outcomes to engage readers.
-- Use formatting that enhances readability: bullet points, numbered lists, short paragraphs, bolded key phrases.
-- If FAQs are requested, include them at the end with clear, concise answers optimized for featured snippets.
-- Limit the word count to 1000 words maximum.
-- Write in a way that appeals to both Google AND the reader — natural, helpful, and trustworthy.
-
-**Context:**
-Special Events
-As the organizer of an event, you have a significant level of liability for the incidents that take place during the occasion. Whether you’re hosting a stag night, a wedding, a large birthday celebration or any other type of event, our trusted team can help build the ideal insurance product for the occasion. It’s a service that can mitigate costly liability and help ensure there are no long-term costs to bear for incidents that might take place on the day.
-
-For your ease and convenience, you may apply directly to Pal Canada for your Special Event Liability policies by clicking HERE. If you need assistance with placing this coverage, please contact one of our broker
-
-
-📌 CONTEXT PROVIDED (User-Supplied Content)
-------------------------
-Special Events
-As the organizer of an event, you have a significant level of liability for the incidents that take place during the occasion. Whether you’re hosting a stag night, a wedding, a large birthday celebration or any other type of event, our trusted team can help build the ideal insurance product for the occasion. It’s a service that can mitigate costly liability and help ensure there are no long-term costs to bear for incidents that might take place on the day.
-
-For your ease and convenience, you may apply directly to Pal Canada for your Special Event Liability policies by clicking HERE. If you need assistance with placing this coverage, please contact one of our broker
 
 📈 GPT-Generated Output
 ------------------------

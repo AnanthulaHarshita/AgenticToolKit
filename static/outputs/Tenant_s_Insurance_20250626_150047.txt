@@ -3,67 +3,7 @@
 🔵 AGENT: SEO and GEO Generator
 ========================
 
-📤 REQUEST PAYLOAD
-------------------------
-{'agent': 'seo_generator', 'input': {'topic': 'Tenant’s Insurance', 'style': 'friendly', 'length': 'long', "FAQ'S": 'YES', 'LIMIT': '1000', 'EXISTING DATA TO BE USED ': 'Tenant’s Insurance\r\nTenant’s Insurance Service\r\n\r\nWhether you’ve just moved into a new property or you’ve been renting the same property for many years, it’s the ideal time to consider your tenant home insurance options. A tenants insurance policy can help protect you against losses due to fire, theft, water damage and more. But only by working with respected tenant and home insurance experts can you ensure you make the right choice for your future coverage requirements. Our team here at W.B. White Insurance has been an insurance market leader since 1929, and we’re now helping renters across the industry to safeguard their property with the latest tenant home insurance options.\r\n\r\nHere’s why renters choose insurance through W.B. White Insurance:\r\n\r\nExperienced guidance\r\nWhich of your belongings is most at risk of damage within the property? How much you should spend each month to protect your essentials? These are questions that can only be answered alongside respected insurance professionals. Each of the experts on our team has decades of market experience to their name, and they can guide you in choosing the right policies for your long-term coverage requirements. Our experience also means we can connect with you trusted insurance providers, each of whom offers the ideal service for unique tenant challenges.\r\n\r\nReduced pricing\r\nAs a renter, you’ll be spending a large percentage of your income on rent each month. You don’t want to pay a premium for tenant’s insurance costs. We understand the delicate balancing act tenants must achieve when crafting their budget, so we offer reduced pricing on our insurance policies. But this doesn’t mean you have to sacrifice on coverage. The policies available through W.B. White are among the most comprehensive in the industry today. We can help you protect all belongings in your home against the latest threats, including fire, theft, and water damage. It’s the complete selection of low-cost options all tenants need to protect their property.\r\n\r\nCustom insurance policies\r\nChoosing tenant insurance shouldn’t mean that you have to sacrifice some areas of your coverage. Our team works tirelessly on your tenant insurance policy to ensure you have the requisite level of coverage you require to protect your belongings over the long-term. Our policies combine affordable pricing with precision to give you the coverage options you need at a price you can afford. It’s how we’ve become one of the leading names within the insurance marketplace in recent years, and how we continue to grow as an organization.\r\n\r\nInvesting in tenant insurance through WB insurance is the best way to ensure you save money on your policies and protect your belongings for the future. Our experts are available now to give you insights on the industry and provide you with all the information you need to make the right choice for your future. To learn more on our company and the range of tenants insurance policy services we offer, call us today!'}}
 
-📋 FULL PROMPT SENT TO GPT
-------------------------
-
-You are an expert SEO and geo-targeted content writer specializing in high-conversion copywriting.
-
-Your goal is to write a long article in a friendly tone on the topic: 'Tenant’s Insurance'.
-
-**Key Instructions:**
-- Optimize for high-converting, long-tail keywords related to the topic and Ontario, Canada.
-- Include location-specific language and examples to increase local relevance.
-- Structure the content with a compelling H1, SEO-friendly subheadings (H2/H3), and a persuasive meta title and meta description.
-- Write with lead generation in mind: include trust-building statements, benefit-driven CTAs, and soft sales language without being overly promotional.
-- Use real-world benefits, social proof suggestions (testimonials, location mentions), and clear outcomes to engage readers.
-- Use formatting that enhances readability: bullet points, numbered lists, short paragraphs, bolded key phrases.
-- If FAQs are requested, include them at the end with clear, concise answers optimized for featured snippets.
-- Limit the word count to 1000 words maximum.
-- Write in a way that appeals to both Google AND the reader — natural, helpful, and trustworthy.
-
-**Context:**
-Tenant’s Insurance
-Tenant’s Insurance Service
-
-Whether you’ve just moved into a new property or you’ve been renting the same property for many years, it’s the ideal time to consider your tenant home insurance options. A tenants insurance policy can help protect you against losses due to fire, theft, water damage and more. But only by working with respected tenant and home insurance experts can you ensure you make the right choice for your future coverage requirements. Our team here at W.B. White Insurance has been an insurance market leader since 1929, and we’re now helping renters across the industry to safeguard their property with the latest tenant home insurance options.
-
-Here’s why renters choose insurance through W.B. White Insurance:
-
-Experienced guidance
-Which of your belongings is most at risk of damage within the property? How much you should spend each month to protect your essentials? These are questions that can only be answered alongside respected insurance professionals. Each of the experts on our team has decades of market experience to their name, and they can guide you in choosing the right policies for your long-term coverage requirements. Our experience also means we can connect with you trusted insurance providers, each of whom offers the ideal service for unique tenant challenges.
-
-Reduced pricing
-As a renter, you’ll be spending a large percentage of your income on rent each month. You don’t want to pay a premium for tenant’s insurance costs. We understand the delicate balancing act tenants must achieve when crafting their budget, so we offer reduced pricing on our insurance policies. But this doesn’t mean you have to sacrifice on coverage. The policies available through W.B. White are among the most comprehensive in the industry today. We can help you protect all belongings in your home against the latest threats, including fire, theft, and water damage. It’s the complete selection of low-cost options all tenants need to protect their property.
-
-Custom insurance policies
-Choosing tenant insurance shouldn’t mean that you have to sacrifice some areas of your coverage. Our team works tirelessly on your tenant insurance policy to ensure you have the requisite level of coverage you require to protect your belongings over the long-term. Our policies combine affordable pricing with precision to give you the coverage options you need at a price you can afford. It’s how we’ve become one of the leading names within the insurance marketplace in recent years, and how we continue to grow as an organization.
-
-Investing in tenant insurance through WB insurance is the best way to ensure you save money on your policies and protect your belongings for the future. Our experts are available now to give you insights on the industry and provide you with all the information you need to make the right choice for your future. To learn more on our company and the range of tenants insurance policy services we offer, call us today!
-
-
-📌 CONTEXT PROVIDED (User-Supplied Content)
-------------------------
-Tenant’s Insurance
-Tenant’s Insurance Service
-
-Whether you’ve just moved into a new property or you’ve been renting the same property for many years, it’s the ideal time to consider your tenant home insurance options. A tenants insurance policy can help protect you against losses due to fire, theft, water damage and more. But only by working with respected tenant and home insurance experts can you ensure you make the right choice for your future coverage requirements. Our team here at W.B. White Insurance has been an insurance market leader since 1929, and we’re now helping renters across the industry to safeguard their property with the latest tenant home insurance options.
-
-Here’s why renters choose insurance through W.B. White Insurance:
-
-Experienced guidance
-Which of your belongings is most at risk of damage within the property? How much you should spend each month to protect your essentials? These are questions that can only be answered alongside respected insurance professionals. Each of the experts on our team has decades of market experience to their name, and they can guide you in choosing the right policies for your long-term coverage requirements. Our experience also means we can connect with you trusted insurance providers, each of whom offers the ideal service for unique tenant challenges.
-
-Reduced pricing
-As a renter, you’ll be spending a large percentage of your income on rent each month. You don’t want to pay a premium for tenant’s insurance costs. We understand the delicate balancing act tenants must achieve when crafting their budget, so we offer reduced pricing on our insurance policies. But this doesn’t mean you have to sacrifice on coverage. The policies available through W.B. White are among the most comprehensive in the industry today. We can help you protect all belongings in your home against the latest threats, including fire, theft, and water damage. It’s the complete selection of low-cost options all tenants need to protect their property.
-
-Custom insurance policies
-Choosing tenant insurance shouldn’t mean that you have to sacrifice some areas of your coverage. Our team works tirelessly on your tenant insurance policy to ensure you have the requisite level of coverage you require to protect your belongings over the long-term. Our policies combine affordable pricing with precision to give you the coverage options you need at a price you can afford. It’s how we’ve become one of the leading names within the insurance marketplace in recent years, and how we continue to grow as an organization.
-
-Investing in tenant insurance through WB insurance is the best way to ensure you save money on your policies and protect your belongings for the future. Our experts are available now to give you insights on the industry and provide you with all the information you need to make the right choice for your future. To learn more on our company and the range of tenants insurance policy services we offer, call us today!
 
 📈 GPT-Generated Output
 ------------------------
