@@ -141,7 +141,7 @@ def search_embeddings(query, top_k=3):
             for idx, score in zip(I[0], D[0]):
                 if idx < len(meta):
                     results.append({
-                        "file": meta[idx]["file"],
+                        "file": meta[idx]["file"].replace("\\", "/"),
                         "topic": meta[idx]["topic"],
                         "score": float(score)
                     })
