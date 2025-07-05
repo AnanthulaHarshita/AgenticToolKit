@@ -47,6 +47,8 @@ def store_embedding(topic):
         
         # Read the file content
         try:
+            # Make sure file path uses forward slashes
+            file_path = file_path.replace("\\", "/")
             with open(file_path, "r", encoding="utf-8") as f:
                 content = f.read()
         except Exception as e:
