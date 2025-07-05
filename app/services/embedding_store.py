@@ -10,12 +10,13 @@ import logging
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Define the absolute path to the outputs directory (for storing files and FAISS index)
-OUTPUT_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "static", "outputs"))
+OUTPUT_DIR = "/home/ubuntu/AgenticToolKit/static/outputs"
 os.makedirs(OUTPUT_DIR, exist_ok=True)  # Ensure the outputs directory exists
 
 # Define the absolute paths for the FAISS index and metadata files
 INDEX_PATH = os.path.join(OUTPUT_DIR, "faiss.index")
 META_PATH = os.path.join(OUTPUT_DIR, "faiss_meta.pkl")
+
 
 def get_latest_file_by_topic(topic, outputs_dir=OUTPUT_DIR):
     """
