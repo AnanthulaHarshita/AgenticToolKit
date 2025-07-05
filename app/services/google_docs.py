@@ -1,50 +1,60 @@
 import os
 import logging
-from google.oauth2.credentials import Credentials
-from google_auth_oauthlib.flow import InstalledAppFlow
-from googleapiclient.discovery import build
-from google.auth.transport.requests import Request  # <-- Add this line
+from google.oauth2 import service_account  # Import Service Account auth class
+from googleapiclient.discovery import build  # Google API client library
 
-SCOPES = ['https://www.googleapis.com/auth/documents', 'https://www.googleapis.com/auth/drive.file']
+# Define the API scopes we need:
+# - documents: allows creating and editing Google Docs
+# - drive.file: allows creating files in your Google Drive
+SCOPES = [
+    'https://www.googleapis.com/auth/documents',
+    'https://www.googleapis.com/auth/drive.file'
+]
 
-# Get credentials path from environment variable, default to 'credentials.json'
+# Get the credentials path from the environment variable.
+# If the variable is not set, default to 'credentials.json' in current folder.
 GOOGLE_CREDENTIALS_PATH = os.getenv("GOOGLE_CREDENTIALS_PATH", "credentials.json")
 
 def create_google_doc(title, content):
-    creds = None
-    # Token file stores the user's access and refresh tokens
-    if os.path.exists('token.json'):
-        creds = Credentials.from_authorized_user_file('token.json', SCOPES)
-    # If no valid credentials, let user log in
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            if os.path.exists(GOOGLE_CREDENTIALS_PATH):
-                flow = InstalledAppFlow.from_client_secrets_file(GOOGLE_CREDENTIALS_PATH, SCOPES)
-                creds = flow.run_local_server(port=0)
-            else:
-                raise Exception(f"Google credentials not found at {GOOGLE_CREDENTIALS_PATH}")
-        # Save the credentials for next run
-        try:
-            with open('token.json', 'w') as token:
-                token.write(creds.to_json())
-        except Exception as e:
-            # Log but don't crash if token can't be saved (common in cloud)
-            logging.warning(f"Could not save token.json: {e}")
+    """
+    Creates a Google Doc with the specified title and content.
+    Returns the public URL to edit the document.
+    """
 
     try:
+        # Use Service Account credentials.
+        # This reads the JSON key file you downloaded from Google Cloud Console.
+        # Service Account keys allow server-to-server authentication with no browser.
+        creds = service_account.Credentials.from_service_account_file(
+            GOOGLE_CREDENTIALS_PATH,
+            scopes=SCOPES
+        )
+
+        # Build the Docs API client using the credentials.
         service = build('docs', 'v1', credentials=creds)
+
+        # Create a new empty document with the given title.
         doc = service.documents().create(body={'title': title}).execute()
-        doc_id = doc.get('documentId')
+        doc_id = doc.get('documentId')  # Extract the document ID
+
+        # Prepare the request to insert text at the start of the document.
         requests = [{
             'insertText': {
                 'location': {'index': 1},
                 'text': content
             }
         }]
-        service.documents().batchUpdate(documentId=doc_id, body={'requests': requests}).execute()
+
+        # Execute the batch update request to insert the text.
+        service.documents().batchUpdate(
+            documentId=doc_id,
+            body={'requests': requests}
+        ).execute()
+
+        # Return the URL for the user to open the document in Google Docs.
         return f"https://docs.google.com/document/d/{doc_id}/edit"
+
     except Exception as e:
+        # Log any error and return a user-friendly message.
         logging.error(f"Google Docs API error: {e}")
         return {"error": "There was a problem creating your Google Doc. Please try again later."}
