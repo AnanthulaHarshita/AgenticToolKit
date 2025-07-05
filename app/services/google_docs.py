@@ -39,10 +39,9 @@ def create_google_doc(title, content):
 
         # Grant permissions using Drive API
         drive_service = build('drive', 'v3', credentials=creds)
-
         permission = {
-            'type': 'anyone',
-            'role': 'reader'  # or 'writer' if you want editable
+            "type": "anyone",
+            "role": "reader"  # or "writer" if you want to let anyone edit
         }
 
         drive_service.permissions().create(
